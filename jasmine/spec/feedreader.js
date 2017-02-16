@@ -8,14 +8,14 @@
  * since some of these tests may require DOM elements. We want
  * to ensure they don't run until the DOM is ready.
  */
-$(function() {
+$(function(){
     /* This is our first test suite - a test suite just contains
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
     */
-    describe('RSS Feeds', function() {
+    describe('RSS Feeds', function(){
 
-        it('are defined', function() {
+        it('are defined', function(){
             expect(allFeeds).toBeDefined(); // allFeeds is defined
             expect(allFeeds.length).not.toBe(0); //allFeeds Array is not empty
         });
@@ -23,7 +23,7 @@ $(function() {
 
          it('url are defined and not empty', function(){
            for (i = 0; i < allFeeds.length; i = i + 1){ // to go through allFeeds array to check for url
-             expect(allFeeds[i].url).toBeDefined; // url is defined
+             expect(allFeeds[i].url).toBeDefined(); // url is defined
              expect(allFeeds[i].url).not.toBeNull(); // url is not null
              expect(allFeeds[i].url).not.toBe(""); // url is not empty string
            }
@@ -32,7 +32,7 @@ $(function() {
 
          it('name are defined and not empty', function(){
            for (i = 0; i < allFeeds.length; i = i + 1){ // to go through allFeeds array to check for name
-             expect(allFeeds[i].name).toBeDefined; // name is defined
+             expect(allFeeds[i].name).toBeDefined(); // name is defined
              expect(allFeeds[i].name).not.toBeNull(); // name is not null
              expect(allFeeds[i].name).not.toBe(""); // name is not empty string
            }
@@ -46,7 +46,7 @@ $(function() {
 
          it('is hidden by default', function(){
            expect($('body').hasClass('menu-hidden')).toEqual(true); // default menu-hidden is hidden hence should be true
-         })
+         });
 
           it("shows and hides when clicked on", function(){
 
@@ -55,7 +55,7 @@ $(function() {
 
             $('.menu-icon-link').click(); //state of menu is open hence trigger click to close menu
             expect($('body').hasClass('menu-hidden')).toEqual(true); // if menu is closed toEqual true
-          })
+          });
 
           });
 
@@ -63,15 +63,15 @@ $(function() {
     describe("Initial Entries", function(){
 
       // beforeEach to wait for async calls to finish
-          beforeEach(function(done) {
-          loadFeed(0, function() {
+          beforeEach(function(done){
+          loadFeed(0, function(){
               done();
           });
         });
 
          it("loads atleast one entry within the feed container", function(){
            expect($('.entry').length).not.toEqual(0); // if there is an entry it will not equal 0
-         })
+         });
 
          });
 
@@ -83,22 +83,22 @@ $(function() {
          var secondFeed;
 
          // beforeEach to wait for async calls to finish
-         beforeEach(function(done) {
-             loadFeed(1, function() {
+         beforeEach(function(done){
+             loadFeed(1, function(){
                  firstFeed = $('.feed').html();
-                 loadFeed(2, function() {
+                 loadFeed(2, function(){
                      done();
                  });
              });
           });
 
          // afterEach to reload first entry
-         afterEach(function() {
+         afterEach(function(){
              loadFeed(0);
          });
 
-          it('displays feed content changes on menu select', function() {
-             expect(firstFeed).toBeDefined();  //f irstFeed is defined
+          it('displays feed content changes on menu select', function(){
+             expect(firstFeed).toBeDefined();  //firstFeed is defined
              secondFeed = $('.feed').html();  // secondFeed is loaded
              expect(secondFeed).toBeDefined(); // secondFeed is defined
              expect(firstFeed).not.toEqual(secondFeed); // firstFeed not.toEqual secondFeed as new content should have loaded
