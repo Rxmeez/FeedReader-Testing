@@ -4,19 +4,19 @@ In this Udacity project, I worked with Jasmine development framework by applying
 
 ### Different Test Carried Out
 ---
-1. RSS Feeds:
+RSS Feeds:
 * Test feeds are defined
 * Test feed URLs are defined and contain content
 * Test feed names are defined and contain content
 
-2. Menu:
+Menu:
 * Test is hidden on page load
 * Test menu icon appears on click
 
-3. First RSS Entry:
+First RSS Entry:
 * Test at least one entry displays on load after async call
 
-4. RSS Entry Change:
+RSS Entry Change:
 * Test RSS entry changes on menu select
 
 
