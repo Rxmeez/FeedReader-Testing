@@ -29,13 +29,13 @@ $(function() {
 
 
     /* TODO: Write a new test suite named "The menu" */
-    describe("The menu", function() {
+    describe('The menu', function() {
 
         it('is hidden by default', function() {
             expect($('body').hasClass('menu-hidden')).toEqual(true); // default menu-hidden is hidden hence should be true
         });
 
-        it("shows and hides when clicked on", function() {
+        it('shows and hides when clicked on', function() {
 
             $('.menu-icon-link').click(); // Intially its hidden so trigger click to open menu
             expect($('body').hasClass('menu-hidden')).toEqual(false); // if menu is open toEqual false
@@ -47,7 +47,7 @@ $(function() {
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
-    describe("Initial Entries", function() {
+    describe('Initial Entries', function() {
 
         // beforeEach to wait for async calls to finish
         beforeEach(function(done) {
@@ -56,14 +56,14 @@ $(function() {
             });
         });
 
-        it("loads atleast one entry within the feed container", function() {
-            expect($('.entry').length).not.toEqual(0); // if there is an entry it will not equal 0
+        it('loads atleast one entry within the feed container', function() {
+            expect($('.feed .entry').length).not.toEqual(0); // if there is an entry it will not equal 0
         });
 
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-    describe("New Feed Selection", function() {
+    describe('New Feed Selection', function() {
 
         // variable feeds that will be used for comparison
         var firstFeed;
